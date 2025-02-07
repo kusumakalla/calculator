@@ -133,8 +133,13 @@ operatorBtn.forEach(btn => {
         }
         else if(operand2 != "0"){
             operand1 = operate(operator,Number(operand1),Number(operand2));
+            if(operand1 === Infinity){
+                display.innerHTML = "ERROR";
+            }
+            else{
             result = operand1;
             display.innerHTML = limitResult(operand1);   
+            }
             if(e.target.value == "="){
                 operator ="";
                 operand1 ="0";
