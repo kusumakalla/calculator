@@ -155,3 +155,13 @@ operatorBtn.forEach(btn => {
     })
 })
 
+// clear button
+
+let clearButton = document.querySelector(".clear")
+
+clearButton.addEventListener('click',()=>{
+    display.innerHTML ="";
+    operand1 = "0";
+    operand2 = "0";
+    operator = "";
+})
