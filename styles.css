@@ -1,0 +1,78 @@
+body{
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color :rgba(43, 39, 39, 0.67)
+}   
+.container{
+    /* min-height: 500px; */
+    width: 250px;
+    height: 400px;
+    border:  rgba(222, 177, 110, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color:beige;
+}
+.buttons{
+    margin: 5px;
+    display: flex;
+    height: auto;
+}
+.numButtons{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+.oprButtons{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.row5,.row1,.row2 ,.row3,.row4{
+    display: flex;
+}
+
+.number,.percentage,.clear,.signChange{
+    width: 50px;
+    height: 50px;
+    flex: 1 1 auto;
+    margin: 5px;
+}
+#zero{
+    flex : 2 1 auto;
+}
+
+.display{
+    margin: 10px;
+    box-sizing: border-box;
+    width: 230px;
+    height: 60px; 
+    padding: 10px;
+    border-radius: 10px;
+    border: solid;
+    font-size: large;
+    font-weight: 800;
+    text-align: end;
+    color: beige;
+    background-color: rgba(44, 42, 42, 0.588)
+}
+
+.operator{
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+button{
+    font-size: medium;
+    font-weight: 500;
+    border:solid rgba(190, 190, 153, 0.508) ;
+    border-radius: 5px;
+    background-color :rgba(190, 190, 153, 0.508)
+}
