@@ -78,7 +78,7 @@ numArray.forEach(btn => {
     btn.addEventListener('click', (e) => {
         if (operand1 == "0" && operator == ""){
             display.innerHTML = e.target.value;
-            operand1 = display.textContent
+            operand1 = e.target.value;
             console.log("start");
             length1 = 1;
         }
@@ -89,18 +89,18 @@ numArray.forEach(btn => {
             else{
             display.innerHTML += (e.target.value);
             length1 += 1;
-            operand1 = display.textContent;
+            operand1 += e.target.value;
             console.log("middle")
             }
         }
         else if(result == ""){
             display.innerHTML += (e.target.value);
-            operand2 = display.textContent;
+            operand2 += e.target.value;
             console.log("second")
         }
         else if(operand2 == "0"){
             display.innerHTML = e.target.value;
-            operand2 = display.textContent;
+            operand2 = e.target.value;
             console.log("second start with opr")
             length2 = 1;
         }
@@ -111,7 +111,7 @@ numArray.forEach(btn => {
             else{
             display.innerHTML += (e.target.value);
             length2 += 1;
-            operand2 =display.textContent;
+            operand2 += e.target.value;
             console.log("second continue with opr")
             }
         }
@@ -124,26 +124,22 @@ let operatorBtn = document.querySelectorAll(".operator");
 
 operatorBtn.forEach(btn => {
     btn.addEventListener('click', (e)=> {
-
-        if(operand2 == "0" && operator == "/"){
-            display.textContent = "ERROR";
-            operator ="";
-            operand1 ="0";
-            operand2 ="0";
-            result = "";
-        }
-        else if(operand2 == "0" && e.target.value == "="){
-            display.textContent = limitResult(operand1);
+        display.innerHTML = "";
+        if(operand2 == "0" && e.target.value == "="){
+            display.innerHTML = limitResult(operand1);
             operand1 = "0";
             operator ="";
             console.log("= pressed with out 2opr")
         }
         else if(operand2 != "0"){
             operand1 = operate(operator,Number(operand1),Number(operand2));
-            
+            if(operand1 === Infinity){
+                display.innerHTML = "ERROR";
+            }
+            else{
             result = operand1;
             display.innerHTML = limitResult(operand1);   
-            
+            }
             if(e.target.value == "="){
                 operator ="";
                 operand1 ="0";
@@ -174,9 +170,3 @@ clearButton.addEventListener('click',()=>{
     operand2 = "0";
     operator = "";
 })
-
-let signChange = document.querySelector(".signChange");
-
-signChange.addEventListener('click', ()=>{
-    display.textContent = -(display.textContent);
-} )
